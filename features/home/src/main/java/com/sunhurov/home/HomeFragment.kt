@@ -40,7 +40,7 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadStations()
-        fragment_home_root_view.isEnabled = false
+        home_refresh_layout_view.isEnabled = false
         setViewListeners()
     }
 
