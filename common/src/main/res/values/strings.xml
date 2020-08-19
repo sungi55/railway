@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Railway</string>
+    <string name="an_error_happened">An error happened. Please try again!</string>
+    <string name="error_image_description">error image</string>
+    <string name="text_distance_format">Distance between station is %d km</string>
+    <string name="hint_start_station">Start station</string>
+    <string name="hint_end_station">End station</string>
+    <string name="text_show_distance">Show distance</string>
+    <string name="text_try_again">Try again</string>
+</resources>

@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+apply from: '../../android_commons.gradle'
+
+dependencies {
+    // KOTLIN
+    implementation KotlinLibraries.kotlin
+
+    // KOIN
+    implementation Libraries.koin
+    implementation Libraries.koinViewModel
+}

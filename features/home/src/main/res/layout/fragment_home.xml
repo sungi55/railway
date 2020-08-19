@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sunhurov.home.HomeViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/fragment_home_root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        tools:context=".HomeFragment"
+        app:showWhenLoading="@{viewmodel.loading}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+          >
+
+
+            <TextView
+                android:id="@+id/fragment_home_text_view_empty_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/an_error_happened"
+                android:textColor="@color/colorTextWhite"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_image_empty_list"
+                app:showWhenErrorFetching="@{viewmodel.loading}" />
+
+            <ImageView
+                android:id="@+id/fragment_home_image_empty_list"
+                android:layout_width="@dimen/default_icon_width"
+                android:layout_height="@dimen/default_icon_height"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:showWhenErrorFetching="@{viewmodel.loading}"
+                app:srcCompat="@drawable/ic_train" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/Widget.AppCompat.ImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/white"
+                android:text="@string/text_try_again"
+                android:visibility="invisible"
+                android:onClick="@{() -> viewmodel.loadStations()}"
+                app:showWhenErrorFetching="@{viewmodel.loading}"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_home_text_view_empty_list"
+                app:layout_constraintStart_toStartOf="@+id/fragment_home_text_view_empty_list"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_text_view_empty_list" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="2dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <AutoCompleteTextView
+                        android:id="@+id/text_start_station"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:hint="@string/hint_start_station"
+                        app:entries="@{viewmodel.startStation}"
+                        android:inputType="textAutoComplete"
+                        android:maxLength="90"
+                        android:padding="12dp"
+                        android:drawableStart="@drawable/ic_start"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/text_end_station"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:hint="@string/hint_end_station"
+                        android:inputType="textAutoComplete"
+                        android:maxLength="90"
+                        android:padding="12dp"
+                        app:entries="@{viewmodel.endStation}"
+                        android:drawableStart="@drawable/ic_end"
+                        android:dropDownAnchor="@id/text_end_station"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_start_station" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_show_distance"
+                android:onClick="@{() -> viewmodel.onShowDetailsClick()}"
+                android:background="@drawable/button_show_details_background"
+                android:textColor="@color/colorTextWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>
