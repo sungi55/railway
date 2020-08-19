@@ -62,14 +62,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="@android:color/white"
-                android:text="@string/text_try_again"
-                android:visibility="invisible"
+                android:background="@drawable/card_layout_background"
                 android:onClick="@{() -> viewmodel.loadStations()}"
-                app:showWhenErrorFetching="@{viewmodel.loading}"
+                android:text="@string/text_try_again"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/fragment_home_text_view_empty_list"
                 app:layout_constraintStart_toStartOf="@+id/fragment_home_text_view_empty_list"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_home_text_view_empty_list" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_home_text_view_empty_list"
+                app:showWhenErrorFetching="@{viewmodel.loading}" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
