@@ -65,7 +65,7 @@
                 android:background="@drawable/card_layout_background"
                 android:onClick="@{() -> viewmodel.loadStations()}"
                 android:text="@string/text_try_again"
-                android:visibility="visible"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="@+id/fragment_home_text_view_empty_list"
                 app:layout_constraintStart_toStartOf="@+id/fragment_home_text_view_empty_list"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_home_text_view_empty_list"
