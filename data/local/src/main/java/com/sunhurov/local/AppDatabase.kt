@@ -11,7 +11,7 @@ import com.sunhurov.model.*
 @Database(entities = [
     Station::class,
     StationKeyword::class
-], version = 1, exportSchema = false)
+], version = 2, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
 
     // DAO
@@ -24,6 +24,7 @@ abstract class AppDatabase: RoomDatabase() {
 
         fun buildDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "RailwayApp.db")
+                .fallbackToDestructiveMigration()
                 .build()
     }
 }

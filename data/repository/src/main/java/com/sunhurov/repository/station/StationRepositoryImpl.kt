@@ -90,7 +90,8 @@ class StationRepositoryImpl(
         shouldRefresh: Long
     ) = station == null
             || keyword == null
-            || haveToRefreshFromNetwork(shouldRefresh)
+//            || haveToRefreshFromNetwork(shouldRefresh)
+            || true
 
 
     override suspend fun saveStations(stations: List<Station>) {

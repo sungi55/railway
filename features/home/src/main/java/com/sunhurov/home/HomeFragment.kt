@@ -41,6 +41,8 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadStations()
         home_refresh_layout_view.isEnabled = false
+        text_end_station.threshold = 2
+        text_start_station.threshold = 2
         setViewListeners()
     }
 

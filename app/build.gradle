@@ -45,6 +45,8 @@ dependencies {
 
     implementation AndroidLibraries.multidex
 
+    implementation Libraries.stetho
+
 }
 repositories {
     mavenCentral()

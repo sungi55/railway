@@ -48,6 +48,7 @@ object Versions {
     val recyclerview = "1.1.0"
     val safeArgs = "2.3.0"
     val glide = "4.11.0"
+    val stetho = "1.5.1"
 }
 
 object Libraries {
@@ -67,6 +68,8 @@ object Libraries {
     // GLIDE
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+    // DEBUG
+    val stetho =  "com.facebook.stetho:stetho:${Versions.stetho}"
 }
 
 object KotlinLibraries {
